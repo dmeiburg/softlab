@@ -8,3 +8,12 @@ steps:
   commands:
     - pip install -r requirements.txt
     - PYTHONPATH=. pytest
+
+- name: push to github
+  image: appleboy/drone-git-push
+  settings:
+    branch: master
+    remote: git@github.com:dmeiburg/softlab.git 
+    force: false
+    key:
+      from_secret: github_ssh_key
