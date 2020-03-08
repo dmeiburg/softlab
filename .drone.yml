@@ -15,5 +15,5 @@ steps:
     branch: master
     remote: git@github.com:dmeiburg/softlab.git 
     force: false
-    key:
+    ssh_key:
       from_secret: github_ssh_key
