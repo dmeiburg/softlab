@@ -1,5 +1,6 @@
 import pyvisa
 
+
 class SDGFunctionGenerator():
     def __init__(self, ip):
         rm = pyvisa.ResourceManager()
