@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: tests and coverage
 type: docker
 
 steps:
@@ -9,8 +9,15 @@ steps:
     - pip install -r requirements.txt
     - PYTHONPATH=. pytest
 
+---
+
+kind: pipeline
+type: docker
+name: push to github
+
 - name: push to github
   image: appleboy/drone-git-push
+  failure: ignore
   settings:
     branch: master
     remote: git@github.com:dmeiburg/softlab.git 
@@ -18,3 +25,6 @@ steps:
   environment:
     GIT_PUSH_SSH_KEY:
       from_secret: github_ssh_key
+  when:
+    branch: 
+      - master
