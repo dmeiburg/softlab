@@ -12,9 +12,10 @@ steps:
 ---
 
 kind: pipeline
-type: docker
 name: push to github
+type: docker
 
+steps:
 - name: push to github
   image: appleboy/drone-git-push
   failure: ignore
