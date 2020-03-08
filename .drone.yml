@@ -7,6 +7,7 @@ steps:
   image: python:3.8-slim-buster
   commands:
     - pip install -r requirements/dev.txt
+    - flake8
     - PYTHONPATH=. coverage run --source=softlab -m pytest
     - coverage xml -o report.xml 
 

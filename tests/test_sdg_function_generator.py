@@ -2,9 +2,12 @@ import pytest
 
 from softlab.sdg_function_generator import SDGFunctionGenerator
 
+
 class MockFunctionGenerator:
     def query(q):
-        responses = {"*IDN?": "Siglent Technologies,SDG2122X,SDG2XCAQ2R1992,2.01.01.23R8\n"}
+        responses = {"*IDN?": ("Siglent Technologies,SDG2122X,"
+                               "SDG2XCAQ2R1992,"
+                               "2.01.01.23R8\n")}
         return responses[q]
 
 
